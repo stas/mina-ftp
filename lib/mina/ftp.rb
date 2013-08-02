@@ -40,10 +40,16 @@ set_default :ftp_from_path, 'public'
 
 set_default :ftp_files_pattern, '**/*'
 
+# ### ftp_options
+# Set some FTP client options to be used
+# Defaults to: a Hash of options
+
+set_default :ftp_options, {:verbose => verbose_mode?, :passive => false}
+
 # ### ftp_client
 # Sets up the ftp client
 set_default :ftp_client, proc{
-  FtpSync.new(ftp_host, ftp_username, ftp_password, :verbose => verbose_mode?)
+  FtpSync.new(ftp_host, ftp_username, ftp_password, ftp_options)
 }
 
 # ## Deploy tasks
