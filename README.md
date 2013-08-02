@@ -35,6 +35,8 @@ set :ftp_path, 'public_www'
 set :ftp_host, 'ftp.domain.com'
 set :ftp_username, 'user@domain.com'
 set :ftp_password, 'secret'
+set :ftp_from_path, 'public'
+set :ftp_options, {:passive => false}
 ```
 
 Update `deploy` task to invoke `ftp:deploy` task:
